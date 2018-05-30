@@ -5,27 +5,21 @@
 package thrift.gencode.invoker;
 
 import org.apache.thrift.TException;
-import org.apache.thrift.TProcessor;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocol;
-import org.apache.thrift.server.TServer;
-import org.apache.thrift.server.TSimpleServer;
-import org.apache.thrift.transport.TServerSocket;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
-import org.apache.thrift.transport.TTransportException;
 
 import thrift.gencode.service.HelloService;
-import thrift.gencode.service.HelloServiceImpl;
 import thrift.gencode.service.User;
 
 /**
- * 简单调用。
+ * 简单调用-客户端。
  *
  * @author shinnlove.jinsheng
- * @version $Id: SimpleInvoker.java, v 0.1 2018-05-30 下午9:31 shinnlove.jinsheng Exp $$
+ * @version $Id: SimpleInvokerClient.java, v 0.1 2018-05-30 下午9:31 shinnlove.jinsheng Exp $$
  */
-public class SimpleInvoker {
+public class SimpleInvokerClient {
 
     private final static String SERVER_IP = "127.0.0.1";
 
@@ -33,32 +27,6 @@ public class SimpleInvoker {
 
     private final static int    timeOut   = 1000;
 
-    /**
-     * 启动服务，使用的是thrift的`TSimpleServer`，对外提供服务是`serve()`方法。
-     *
-     * @throws TTransportException
-     */
-    public void startServer() throws TTransportException {
-        // 创建transport (这是阻塞通信的)
-        TServerSocket serverTransport = new TServerSocket(port);
-
-        // 创建protocol
-        TBinaryProtocol.Factory protocol = new TBinaryProtocol.Factory();
-
-        // 创建processor
-        TProcessor tProcessor = new HelloService.Processor<HelloService.Iface>(
-            new HelloServiceImpl());
-
-        // 定义服务器参数
-        TServer.Args args = new TServer.Args(serverTransport);
-        args.protocolFactory(protocol);
-        args.processor(tProcessor);
-
-        // 将`processor`、`transport`、`protocol`这三个参数设置到服务器server中
-        TServer server = new TSimpleServer(args);
-        // 开启服务
-        server.serve();
-    }
 
     public void startClient() throws TException {
         // 创建 TTransport (其实是个客户端套接字)
@@ -81,9 +49,8 @@ public class SimpleInvoker {
     }
 
     public static void main(String[] args) throws TException {
-        SimpleInvoker simpleInvoker = new SimpleInvoker();
-        simpleInvoker.startServer();
-        simpleInvoker.startClient();
+        SimpleInvokerClient simpleInvokerClient = new SimpleInvokerClient();
+        simpleInvokerClient.startClient();
     }
 
 }

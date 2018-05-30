@@ -16,7 +16,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <thrift.version>0.9.3</thrift.version>
+    <lib.thrift.libfb303>0.9.3</lib.thrift.libfb303>
+    <lib.thrift.version>0.11.0</lib.thrift.version>
   </properties>
 
   <dependencies>
@@ -32,12 +33,12 @@
     <dependency>
       <groupId>org.apache.thrift</groupId>
       <artifactId>libfb303</artifactId>
-      <version>${thrift.version}</version>
+      <version>${lib.thrift.libfb303}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.thrift</groupId>
       <artifactId>libthrift</artifactId>
-      <version>${thrift.version}</version>
+      <version>${lib.thrift.version}</version>
     </dependency>
 
   </dependencies>

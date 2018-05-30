@@ -12,13 +12,13 @@ public class HelloService {
 
   public interface Iface {
 
-    public String sayHello(thrift.gencode.server.User user) throws org.apache.thrift.TException;
+    public String sayHello(User user) throws org.apache.thrift.TException;
 
   }
 
   public interface AsyncIface {
 
-    public void sayHello(thrift.gencode.server.User user, org.apache.thrift.async.AsyncMethodCallback<String> resultHandler) throws org.apache.thrift.TException;
+    public void sayHello(User user, org.apache.thrift.async.AsyncMethodCallback<String> resultHandler) throws org.apache.thrift.TException;
 
   }
 
@@ -42,13 +42,13 @@ public class HelloService {
       super(iprot, oprot);
     }
 
-    public String sayHello(thrift.gencode.server.User user) throws org.apache.thrift.TException
+    public String sayHello(User user) throws org.apache.thrift.TException
     {
       send_sayHello(user);
       return recv_sayHello();
     }
 
-    public void send_sayHello(thrift.gencode.server.User user) throws org.apache.thrift.TException
+    public void send_sayHello(User user) throws org.apache.thrift.TException
     {
       sayHello_args args = new sayHello_args();
       args.setUser(user);
@@ -83,7 +83,7 @@ public class HelloService {
       super(protocolFactory, clientManager, transport);
     }
 
-    public void sayHello(thrift.gencode.server.User user, org.apache.thrift.async.AsyncMethodCallback<String> resultHandler) throws org.apache.thrift.TException {
+    public void sayHello(User user, org.apache.thrift.async.AsyncMethodCallback<String> resultHandler) throws org.apache.thrift.TException {
       checkReady();
       sayHello_call method_call = new sayHello_call(user, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
@@ -91,8 +91,8 @@ public class HelloService {
     }
 
     public static class sayHello_call extends org.apache.thrift.async.TAsyncMethodCall<String> {
-      private thrift.gencode.server.User user;
-      public sayHello_call(thrift.gencode.server.User user, org.apache.thrift.async.AsyncMethodCallback<String> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      private User user;
+      public sayHello_call(User user, org.apache.thrift.async.AsyncMethodCallback<String> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
         this.user = user;
       }
@@ -106,7 +106,7 @@ public class HelloService {
       }
 
       public String getResult() throws org.apache.thrift.TException {
-        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+        if (getState() != State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
@@ -245,7 +245,7 @@ public class HelloService {
     private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new sayHello_argsStandardSchemeFactory();
     private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new sayHello_argsTupleSchemeFactory();
 
-    public thrift.gencode.server.User user; // required
+    public User user; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
@@ -310,7 +310,7 @@ public class HelloService {
     static {
       java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.USER, new org.apache.thrift.meta_data.FieldMetaData("user", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, thrift.gencode.server.User.class)));
+          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, User.class)));
       metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(sayHello_args.class, metaDataMap);
     }
@@ -319,7 +319,7 @@ public class HelloService {
     }
 
     public sayHello_args(
-      thrift.gencode.server.User user)
+      User user)
     {
       this();
       this.user = user;
@@ -330,7 +330,7 @@ public class HelloService {
      */
     public sayHello_args(sayHello_args other) {
       if (other.isSetUser()) {
-        this.user = new thrift.gencode.server.User(other.user);
+        this.user = new User(other.user);
       }
     }
 
@@ -343,11 +343,11 @@ public class HelloService {
       this.user = null;
     }
 
-    public thrift.gencode.server.User getUser() {
+    public User getUser() {
       return this.user;
     }
 
-    public sayHello_args setUser(thrift.gencode.server.User user) {
+    public sayHello_args setUser(User user) {
       this.user = user;
       return this;
     }
@@ -373,7 +373,7 @@ public class HelloService {
         if (value == null) {
           unsetUser();
         } else {
-          setUser((thrift.gencode.server.User)value);
+          setUser((User)value);
         }
         break;
 
@@ -533,7 +533,7 @@ public class HelloService {
           switch (schemeField.id) {
             case 1: // USER
               if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-                struct.user = new thrift.gencode.server.User();
+                struct.user = new User();
                 struct.user.read(iprot);
                 struct.setUserIsSet(true);
               } else { 
@@ -592,7 +592,7 @@ public class HelloService {
         org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
-          struct.user = new thrift.gencode.server.User();
+          struct.user = new User();
           struct.user.read(iprot);
           struct.setUserIsSet(true);
         }

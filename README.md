@@ -54,3 +54,4 @@ thrift -r --gen java HelloService.thrift
 [Apache Thrift极简入门](https://www.jianshu.com/p/89a4ba971a48)
 [Thrift框架学习笔记 IOS/MAC中使用Thrift框架](https://blog.csdn.net/xiaofei125145/article/details/52241803)；
 [brew安装指定版本thrift](https://www.jianshu.com/p/aadb54eac0a8);
+[mac上安装thrift0.9.3](http://www.zhimengzhe.com/mac/134615.html)

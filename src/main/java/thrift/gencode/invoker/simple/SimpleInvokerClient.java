@@ -2,7 +2,7 @@
  * Alipay.com Inc.
  * Copyright (c) 2004-2018 All Rights Reserved.
  */
-package thrift.gencode.invoker;
+package thrift.gencode.invoker.simple;
 
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TBinaryProtocol;
@@ -26,7 +26,6 @@ public class SimpleInvokerClient {
     private final static int    port      = 8091;
 
     private final static int    timeOut   = 1000;
-
 
     public void startClient() throws TException {
         // 创建 TTransport (其实是个客户端套接字)
